@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-acid-yellow">
+    <title>망원 클럽 룩북 블로그 | 거리의 진짜 패션</title>
+    <meta name="description" content="망원 클럽 룩북 블로그: 진짜 클럽러들의 스트릿 패션 이야기. 형광과 블랙, 거친 텍스처. 망원 클럽에서 직접 찍은 리얼 룩북과 스타일링 팁.">
+    <meta name="keywords" content="망원 클럽 룩북, 망원 클럽 블로그, 망원동 패션, 클럽 스트릿 패션, 클럽 스타일링, 망원 클럽러">
+    <link rel="canonical" href="https://t3b06-mw-club-look-2.vercel.app/blog">
+    <meta property="og:title" content="망원 클럽 룩북 블로그 | 진짜 클럽러들의 패션 이야기">
+    <meta property="og:description" content="거리의 진짜 패션: 망원 클럽 룩북이 말하는 것. 형광 옐로우와 블랙의 조화, 클럽 문화의 raw한 매력. 직접 찍은 스트릿 스냅으로 보는 리얼 룩북.">
+    <style>
+        /* RESET + BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            color: #f0e68c;
+            text-decoration: none;
+            border-bottom: 2px solid #f0e68c;
+            transition: all 0.2s;
+        }
+        a:hover {
+            color: #000;
+            background: #f0e68c;
+        }
+        hr {
+            border: 0;
+            height: 3px;
+            background: #f0e68c;
+            margin: 40px 0;
+        }
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #f0e68c;
+            text-shadow: 4px 4px 0 #333;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #f0e68c;
+            border-left: 6px solid #f0e68c;
+            padding-left: 15px;
+            margin: 30px 0 20px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        strong {
+            color: #f0e68c;
+        }
+        /* LAYOUT */
+        header, nav, main, section, footer {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container {
+            padding: 20px;
+            border: 3px solid #f0e68c;
+            background: #111;
+        }
+        .full-bleed {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 20px 20px;
+            background: #222;
+            border-top: 3px solid #f0e68c;
+            border-bottom: 3px solid #f0e68c;
+        }
+        /* PATTERN: nav-present */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            border: 2px solid #f0e68c;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+        }
+        nav a {
+            border-bottom: none;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background: #f0e68c;
+            color: #000;
+        }
+        /* PATTERN: hamburger-menu (hidden by default, shown on mobile via responsive) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #f0e68c;
+            margin: 4px 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        /* PATTERN: responsive-768 */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #111;
+                position: absolute;
+                top: 80px;
+                right: 20px;
+                border: 2px solid #f0e68c;
+                padding: 15px;
+                z-index: 100;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+        /* PATTERN: tel-link */
+        .tel-link {
+            display: inline-block;
+            background: #f0e68c;
+            color: #000;
+            padding: 8px 20px;
+            font-weight: bold;
+            border: none;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        .tel-link:hover {
+            background: #fff;
+            color: #000;
+        }
+        /* blog specific */
+        .blog-post {
+            border: 2px dashed #f0e68c;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .blog-post .meta {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .blog-post blockquote {
+            border-left: 5px solid #f0e68c;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #ccc;
+        }
+        .blog-post ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .blog-post ul li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div style="font-weight:bold; font-size:1.2rem; color:#f0e68c;">MW CLUB LOOK</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="/">홈</a>
+            <a href="/lookbook">룩북</a>
+            <a href="/blog">블로그</a>
+            <a href="/about">어바웃</a>
+            <a href="tel:010-6279-0862">전화문의</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="container">
+        <h1>거리의 진짜 패션: 망원 클럽 룩북이 말하는 것</h1>
+        <p style="font-size:1.1rem; color:#ccc;">망원 클럽 룩북 블로그 — 2025.04.07 | by 클럽러 K</p>
+        <hr>
+
+        <article class="blog-post">
+            <div class="meta">
+                <span>📸 스트릿 스냅 12장 포함</span> · <span>🔥 조회 2,847</span> · <span>💬 댓글 23</span>
+            </div>
+
+            <p>야, 형. 망원 클럽에서 직접 찍은 룩북 얘기 좀 할게. 사실 처음엔 그냥 재미로 시작했어. 클럽 가면서 사람들 옷 좀 찍어보자 싶었거든. 근데 진짜 대박 터졌어. 왜냐면 망원 클럽러들 패션이 너무 raw하니까. 형광 옐로우에 블랙 조합, 찢어진 청바지에 워커, 그리고 번쩍이는 액세서리 — 이게 바로 진짜 거리의 패션이야.</p>
+
+            <p>내가 제일 많이 본 조합은 <strong>형광 옐로우 크롭탑 + 블랙 카고팬츠</strong>야. 어떤 여성분은 거기에 네온 핑크 스니커즈까지 매치했는데, 클럽 조명 아래서 완전 빛나더라. 남자들도 마찬가지야. 검은색 가죽 자켓에 형광 녹색 포인트, 목에는 두꺼운 체인. 근데 이게 촌스럽지가 않아. 왜냐면 다들 자기만의 vibe가 있거든.</p>
+
+            <blockquote>
+                "진짜 클럽러는 옷을 입는 게 아니라, 옷과 함께 밤을 산다." — 망원동 어느 클럽러의 말
+            </blockquote>
+
+            <p><strong>망원 클럽 룩북</strong>을 찍으면서 느낀 점은, 이 동네 사람들은 트렌드를 따라가지 않는다는 거야. 걍 자기 감각대로 입어. 가끔은 완전 엽기적인 조합도 보이는데, 근데 그게 오히려 멋져. 예를 들어, 어떤 형은 교복 재킷에 랩퍼 마스크, 그 위에 형광 비니를 썼어. '뭐야 이게?' 싶었는데 사진 찍고 나니까 개간지나더라.</p>
+
+            <p>사진 찍을 때 팁을 하나 주자면, <strong>클럽 입구나 골목 조명 아래서 찍는 게 최고야</strong>. 거친 텍스처랑 그림자가 살아나거든. 후레쉬는 왠만하면 쓰지 마. 클럽러들 눈 부셔서 싫어해. 대신에 주변 네온사인이나 가로등 불빛을 활용해봐. 난 항상 ISO 좀 높이고 셔터 스피드를 느리게 해서 움직임을 담아. 그러면 찐한 클럽 느낌이 나.</p>
+
+            <p>이번에 찍은 스냅 중에 가장 인기 있었던 건, <strong>클럽 앞에서 담배 피우는 누나의 뒷모습</strong>이야. 검은색 롱코트에 형광 노란색 백팩, 뒤에는 클럽 네온사인이 번져있고. 완전 영화의 한 장면 같지? 근데 사실 그냥 지나가던 사람인데, 타이밍이 좋았어. 클럽 문화의 raw한 매력을 가장 잘 보여주는 컷이었어.</p>
+
+            <p>자, 이제 진짜 꿀팁 줄게. 망원 클럽 룩북에서 영감 받아서 <strong>클럽 가는 날 스타일링</strong> 해보자.</p>
+
+            <ul>
+                <li><strong>블랙 베이스에 형광 포인트 하나</strong> — 예: 검은 원피스에 형광 벨트, 혹은 검은 셔츠에 형광 스트링</li>
+                <li><strong>신발은 무조건 편한 걸로</strong> — 워커나 두꺼운 운동화 좋아. 하이힐은 클럽에서 X</li>
+                <li><strong>액세서리는 과감하게</strong> — 큰 체인, 플라스틱 링, 비니, 마스크. 많을수록 좋아</li>
+                <li><strong>겉옷은 레이어드</strong> — 안에 형광 티 입고, 겉에 검은 자켓. 클럽 안에서는 벗으면 끝</li>
+                <li><strong>향수는 무조건 진하게</strong> — 클럽 안에서는 다 섞이니까 오히려 강한 게 낫더라</li>
+            </ul>
+
+            <p>내가 제일 좋아하는 조합은 <strong>블랙 미니스커트 + 형광 옐로우 오버사이즈 티셔츠 + 검은색 워커</strong>야. 여기에 목에 건 체인하고 손목에는 스터드 밴드. 진짜 클럽에서 사람들이 쳐다봐. 한 형이 "야, 너 룩북 모델이냐?"고 묻더라. 기분 좋았지.</p>
+
+            <p>근데 가장 중요한 건, <strong>자신감</strong>이야. 아무리 좋은 옷을 입어도 몸에 안 어울리면 의미 없어. 망원 클럽러들은 그걸 알어. 그래서 그들의 패션이 더 빛나는 거고. 너도 한번 도전해봐. 형광 하나만 넣어도 완전 달라져.</p>
+
+            <p style="margin-top:30px;">마지막으로, 클럽 가기 전에 옷 상태 체크해. 형광 옷은 땀에 젖으면 색이 티날 수 있으니까, 겉옷 꼭 챙겨. 그리고 전화나 지갑은 잘 챙기고. 클럽에서 폰 잃어버리는 사람 진짜 많아.</p>
+
+            <p>이 글이 도움됐다면, 실제로 클럽 가서 <strong>#망원클럽룩북</strong> 태그 달고 사진 올려줘. 나도 볼게. 더 궁금한 거 있으면 전화해. 번호는 010-6279-0862. 직접 만나서 얘기하는 게 제일 좋아.</p>
+
+            <hr style="margin:30px 0;">
+
+            <p style="text-align:right; font-style:italic;">— 망원에서 밤을 사는 클럽러 K가</p>
+
+            <a href="tel:010-6279-0862" class="tel-link">📞 전화 문의: 010-6279-0862</a>
+        </article>
+    </section>
+</main>
+
+<footer style="margin-top:50px; padding:20px 0; border-top:3px solid #f0e68c; text-align:center; color:#888;">
+    <p>© 2025 망원 클럽 룩북 · 진짜 망원의 패션을 담다</p>
+    <p>사진 무단 도용 금지 · 문의: 010-6279-0862</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('show');
+    }
+    // Close menu on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('navLinks').classList.remove('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
