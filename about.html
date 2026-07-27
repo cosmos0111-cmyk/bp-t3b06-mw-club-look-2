@@ -1,271 +1,317 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-raw-concrete">
-    <title>망원 클럽 룩북 - 정보</title>
-    <meta name="description" content="망원 클럽 룩북 정보: 진짜 밤의 전사들을 위한 가이드. 위치, 드레스 코드, 입장 팁. 전화 010-6279-0862. 굳이 설명이 필요해? 와서 부딪혀.">
-    <meta name="keywords" content="망원 클럽 룩북 정보, 망원 클럽 위치, 클럽 룩북 드레스 코드, 망원 클럽 입장 팁, 스트릿 브루탈리즘 망원, bro 스타일 클럽, 망원 클럽 전화번호">
-    <link rel="canonical" href="https://t3b06-mw-club-look-2.vercel.app/info">
-    <meta property="og:title" content="망원 클럽 룩북 - 정보">
-    <meta property="og:description" content="망원의 밤을 지배할 준비 됐냐? 위치, 룰, 팁 — 다 여기 있다. 전화 010-6279-0862">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --bg: #1a1a1a;
-            --text: #e0e0e0;
-            --accent: #d4af37;
-            --secondary: #8b0000;
-            --font-main: 'Arial Black', 'Impact', sans-serif;
-            --font-body: 'Courier New', monospace;
-            --gutter: 2rem;
-        }
-        html { font-size: 16px; scroll-behavior: smooth; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        body > * { width: 100%; }
-        .wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--gutter);
-        }
-        section, header, footer {
-            padding: 2rem 0;
-            border-bottom: 4px solid var(--accent);
-        }
-        section:last-of-type { border-bottom: none; }
-        h1, h2, h3, h4 {
-            font-family: var(--font-main);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-        }
-        h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 1rem; text-shadow: 4px 4px 0 var(--secondary); }
-        h2 { font-size: 2.5rem; margin-bottom: 1.5rem; border-left: 8px solid var(--secondary); padding-left: 1rem; }
-        h3 { font-size: 1.8rem; margin-bottom: 0.8rem; }
-        p { margin-bottom: 1.2rem; font-size: 1.1rem; }
-        a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s; }
-        a:hover { color: var(--secondary); }
-        /* Brutalist grid: full bleed, asymmetric, oversized */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-        }
-        .card {
-            background: #2a2a2a;
-            border: 3px solid var(--accent);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 8px 8px 0 rgba(212, 175, 55, 0.2);
-        }
-        .card strong {
-            color: var(--secondary);
-            font-family: var(--font-main);
-        }
-        .faq-item {
-            border-bottom: 2px dashed var(--accent);
-            padding: 1.5rem 0;
-        }
-        .faq-item:last-child { border-bottom: none; }
-        .faq-question {
-            font-family: var(--font-main);
-            font-size: 1.3rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            cursor: default;
-        }
-        .faq-answer {
-            font-size: 1rem;
-            padding-left: 1rem;
-        }
-        .tel-link {
-            display: inline-block;
-            font-family: var(--font-main);
-            font-size: 2rem;
-            color: var(--secondary);
-            background: var(--accent);
-            padding: 0.3rem 1.5rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .tel-link:hover {
-            background: var(--secondary);
-            color: var(--accent);
-            transform: scale(1.05);
-        }
-        /* Navigation */
-        nav {
-            background: #111;
-            border-bottom: 4px solid var(--accent);
-            padding: 0.8rem 0;
-        }
-        nav .wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            font-family: var(--font-main);
-            text-transform: uppercase;
-        }
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-        }
-        nav a:hover, nav a.active {
-            border-bottom-color: var(--accent);
-            color: var(--accent);
-        }
-        .hamburger {
-            display: none;
-            background: none;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            font-size: 1.8rem;
-            padding: 0.2rem 0.8rem;
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .grid-2 { grid-template-columns: 1fr; }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #111;
-                padding: 1rem;
-                border-bottom: 4px solid var(--accent);
-                gap: 1rem;
-            }
-            nav ul.open { display: flex; }
-            .hamburger { display: block; }
-            .wrap { padding: 0 1rem; }
-            .tel-link { font-size: 1.5rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>망원 클럽 룩북 — 지역별 클럽 분위기와 선택 가이드</title>
+<meta name="description" content="망원 지역 클럽을 찾는 이들을 위한 종합 가이드. 클럽 분위기, 이용 전 확인사항, 상황별 적합성을 상세히 정리했습니다.">
+<meta name="keywords" content="망원, 클럽, 룩북, 클럽 선택, 지역 클럽 가이드">
+<link rel="canonical" href="https://mangwon-review-choice.link-hub.org/about.html">
+<meta property="og:title" content="망원 클럽 룩북 — 지역별 클럽 분위기와 선택 가이드">
+<meta property="og:description" content="망원 지역 클럽을 선택할 때 꼭 알아야 할 정보와 체크리스트를 제공합니다.">
+<meta property="og:url" content="https://mangwon-review-choice.link-hub.org/about.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://via.placeholder.com/1200x630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="망원 클럽 룩북 — 지역별 클럽 분위기와 선택 가이드">
+<meta name="twitter:description" content="망원 클럽 선택을 위한 상세 가이드와 현장 체크리스트.">
+<meta name="twitter:image" content="https://via.placeholder.com/1200x630">
+<meta name="bpaas-design-system" content="editorial-apple">
+<meta name="bpaas-design-theme" content="kr-ledger-cool">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "망원 클럽 룩북",
+  "url": "https://mangwon-review-choice.link-hub.org/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "망원동",
+    "addressRegion": "서울특별시",
+    "addressCountry": "KR"
+  },
+  "service": {
+    "@type": "Service",
+    "name": "클럽 정보 제공 서비스",
+    "description": "망원 지역 클럽의 분위기, 이용 조건, 체크리스트 등을 제공"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "노을빛 로컬가이드"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"망원 클럽은 어떻게 선택해야 하나요?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"클럽 선택은 방문 목적·인원 규모·시간대에 따라 달라집니다. 분위기, 음악 장르, 좌석 구조를 먼저 확인하고, 사전 예약 여부와 입장료를 비교하세요."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"이용 전 어떤 점을 체크해야 하나요?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"입장료, 영업시간, 사전 예약 필요 여부, 주류 제공 여부를 반드시 확인합니다. 특히 주말에는 대기 시간이 길어질 수 있으니 사전 확인이 필수입니다."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"친구 모임에 적합한 클럽은 어디인가요?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"대형 좌석이 구비된 클럽은 대규모 모임에 적합합니다. 반면 작은 라운지형 클럽은 친밀한 대화와 소규모 파티에 알맞습니다."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"첫 방문 시 어떤 복장을 준비해야 할까요?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"대부분 클럽은 캐주얼·세미 포멀을 허용하지만, 특정 클럽은 드레스 코드를 갖고 있습니다. 사전 확인이 안전합니다."
+      }
+    }
+  ]
+}
+</script>
+<style>
+/* 기본 타이포그래피 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Noto+Serif+KR:wght@400;600&display=swap');
+body{
+  margin:0;
+  font-family: system-ui, sans-serif;
+  background:#fafaf7;
+  color:#111827;
+}
+h1,h2{
+  font-family:'Noto Serif KR', serif;
+  margin:0;
+}
+h1{
+  font-size:2.4rem;
+  font-weight:600;
+  color:#c8960c;
+}
+h2{
+  font-size:1.8rem;
+  margin-top:1rem;
+}
+p{
+  line-height:1.6;
+  margin:0.5rem 0;
+}
+.container{
+  max-width:1050px;
+  margin:0 auto;
+  padding:0 24px;
+}
+.v-img-bmzm{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(8px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 24px;
+  z-index:10;
+}
+.v-img-bmzm ul{
+  list-style:none;
+  display:flex;
+  gap:24px;
+  margin:0;
+  padding:0;
+}
+.v-img-bmzm li{
+  cursor:pointer;
+}
+.m-head-bfn7{
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  cursor:pointer;
+}
+.m-head-bfn7 span{
+  width:24px;
+  height:3px;
+  background:#111827;
+}
+@media (max-width:768px){
+  .v-img-bmzm ul{
+    position:absolute;
+    top:56px;
+    left:0;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    display:none;
+  }
+  .v-img-bmzm ul.show{
+    display:flex;
+  }
+  .m-head-bfn7{
+    display:flex;
+  }
+}
+
+/* 섹션 스타일 */
+section{
+  padding:80px 0;
+}
+.n-main-anx0-hero{
+  background:#fff5e6;
+  text-align:center;
+}
+.n-main-anx0-criteria{
+  background:#e6ffe6;
+}
+.n-main-anx0-conditions{
+  background:#e6f7ff;
+}
+.n-main-anx0-faq{
+  background:#fff0f5;
+}
+article{
+  margin-bottom:40px;
+}
+aside{
+  background:#f9fafb;
+  padding:24px;
+  border-left:4px solid #c8960c;
+}
+
+/* 카드 */
+.q-card-y7ro{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  padding:24px;
+  margin:16px 0;
+}
+
+/* 버튼 */
+.n-box-952x{
+  background:#c8960c;
+  color:#fff;
+  border:none;
+  padding:12px 24px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* 파도 디바이더 */
+.q-hero-dk15{
+  width:100%;
+  overflow:hidden;
+  line-height:0;
+}
+.q-hero-dk15 svg{
+  display:block;
+  width:100%;
+  height:80px;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="wrap">
-            <h1>망원 클럽 룩북</h1>
-            <p style="font-size: 1.2rem; font-style: italic;">— 정보 —</p>
-        </div>
-    </header>
+<header class="v-img-bmzm">
+  <div class="logo"><strong>망원 클럽 룩북</strong></div>
+  <div class="m-head-bfn7" onclick="document.querySelector('.v-img-bmzm ul').classList.toggle('show')">
+    <span></span><span></span><span></span>
+  </div>
+  <ul style="order:3;">
+    <li style="order:2"><a href="#guide">가이드</a></li>
+    <li style="order:4"><a href="#contact">연락처</a></li>
+    <li style="order:1"><a href="#home">홈</a></li>
+    <li style="order:5"><a href="#faq">FAQ</a></li>
+  </ul>
+</header>
 
-    <nav>
-        <div class="wrap">
-            <button class="hamburger" id="hamburger-btn" aria-label="메뉴 열기">☰</button>
-            <ul id="nav-menu">
-                <li><a href="/">홈</a></li>
-                <li><a href="/info" class="active">정보</a></li>
-                <li><a href="/lookbook">룩북</a></li>
-                <li><a href="/contact">연락</a></li>
-            </ul>
-            <span style="font-family: 'Arial Black', sans-serif; color: var(--accent);">T3B06</span>
-        </div>
-    </nav>
+<section id="home" class="n-main-anx0-hero">
+  <div class="container">
+    <h1>망원 클럽 룩북</h1>
+    <p class="q-card-y7ro">망원동은 독특한 문화와 음악이 어우러진 클럽 거리입니다. 이 페이지에서는 지역별 클럽의 분위기, 이용 전 체크리스트, 상황별 적합성을 집중적으로 정리했습니다. 방문 전 반드시 확인해야 할 항목들을 미리 검토해 현장 경험을 한층 끌어올리세요.</p>
+    <p class="q-card-y7ro">클럽 선택은 단순히 ‘좋아하는 음악’만으로 끝나지 않습니다. 인원 규모, 방문 시간대, 목적(댄스·대화·네트워킹 등)에 따라 최적의 공간이 달라지기 때문이죠. 여기서는 그런 다양한 변수를 체계적으로 제시합니다.</p>
+  </div>
+</section>
 
-    <main>
-        <section>
-            <div class="wrap">
-                <h2>진짜 망원의 밤을 위한 정보</h2>
-                <p>틀에 박힌 클럽 가이드는 집어치워. 여기는 망원. 거리의 피가 흐르는 밤. 이 정보를 읽는 것만으로도 넌 이미 다른 레벨이다. 아래 내용을 숙지하고 와서 부딪혀. 전화 010-6279-0862 — 아직 안 믿음? 와서 보든가.</p>
-            </div>
-        </section>
+<div class="q-hero-dk15"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#fff5e6" d="M0,30 C360,80 720,0 1080,55 C1260,85 1440,40 1440,0 L1440,80 L0,80 Z"></path></svg></div>
 
-        <section>
-            <div class="wrap grid-2">
-                <div>
-                    <div class="card">
-                        <h3>📍 위치 — 망원동 중심</h3>
-                        <p><strong>주소:</strong> 서울 마포구 망원로 62-12 (지번: 망원동 418-12)<br>
-                        <strong>오시는 길:</strong> 망원역 2번 출구 도보 5분. 골목 사이로 보이는 <strong>RAW CONCRETE</strong> 간판이 랜드마크. 네비 찍고 오든가, 길치면 전화해.</p>
-                        <p><strong>주차:</strong> 주변 공영주차장 이용. 차 갖고 오면 음주는 집어치워. 대리기사 부르든가.</p>
-                    </div>
+<section id="guide" class="n-main-anx0-criteria">
+  <div class="container">
+    <article>
+      <h2>선택 기준 정리</h2>
+      <p>첫 번째 기준은 <strong>방문 목적</strong>입니다. 음악 중심의 댄스 파티를 원한다면 대형 메인 플로어와 고음질 사운드 시스템을 갖춘 클럽이 적합합니다. 반면 조용히 대화를 나누고 싶은 경우, 라운지형 좌석이 많은 소규모 클럽을 선택하세요.</p>
+      <p>두 번째는 <strong>인원 규모</strong>입니다. 10명 이하 소규모 모임은 부스형 좌석이 있는 클럽이 편리합니다. 20명 이상 대규모 모임은 별도 파티룸 예약이 가능한 곳을 우선 고려해야 합니다.</p>
+    </article>
+    <aside>
+      <p>· <strong>음악 장르</strong> : 전자·히프합, 인디, 재즈 등 클럽마다 특화된 라인업이 있습니다.<br>
+      · <strong>입장료</strong> : 5,000~20,000원 사이가 일반적이며, 입장 전 음료 구매가 필수인 경우도 있습니다.<br>
+      · <strong>예약 여부</strong> : 주말과 연휴는 사전 예약이 필수이며, 온라인 예약 시스템을 운영하는 클럽이 많습니다.</p>
+    </aside>
+    <article>
+      <h2>이용 전 확인사항</h2>
+      <p>클럽 방문 전 반드시 확인해야 할 핵심 항목은 다음과 같습니다. 첫째, <strong>영업시간</strong>과 <strong>주류 제공 여부</strong>를 사전 확인합니다. 둘째, <strong>주차 가능 여부</strong>와 대중교통 접근성을 체크해 이동 불편을 최소화하세요.</p>
+      <p>셋째, <strong>복장 규정</strong>을 확인합니다. 일부 클럽은 ‘드레스 코드’를 적용해 캐주얼한 복장은 제한할 수 있습니다. 마지막으로, <strong>안전 정책</strong>—출입 절차와 보안 검색 방식을 미리 알아두면 현장에서의 불편을 줄일 수 있습니다.</p>
+    </article>
+  </div>
+</section>
 
-                    <div class="card">
-                        <h3>👕 드레스 코드 — 브루탈리즘 스트릿</h3>
-                        <p>정장? 노타이? <strong>그딴 거 없음.</strong> 진짜 너 자신을 입어라. 단, 기준은 있다:</p>
-                        <ul style="margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: square;">
-                            <li>워싱된 데님, 워크팬츠, 카고 — 필수</li>
-                            <li>가죽 재킷, 후드티, 오버핏 — 환영</li>
-                            <li>스니커즈 또는 부츠 — <strong>구두 신고 오면 쫓겨날 수 있음</strong></li>
-                            <li>악세사리: 체인, 실버 링, 비니 — 포인트로</li>
-                        </ul>
-                        <p><strong>NO:</strong> 화려한 로고, 명품 백, 정장 구두. 망원 클럽 룩북의 정신을 모르면 집에 가서 유튜브나 봐라.</p>
-                    </div>
-                </div>
+<div class="q-hero-dk15"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#e6ffe6" d="M0,80 C360,30 720,110 1080,55 C1260,25 1440,70 1440,80 L1440,0 L0,0 Z"></path></svg></div>
 
-                <div>
-                    <div class="card">
-                        <h3>⏰ 영업 시간</h3>
-                        <p>목~토: 22:00 ~ 05:00<br>
-                        일: 21:00 ~ 03:00<br>
-                        월~수: 휴무 (가끔 프라이빗 이벤트 있음, 전화 확인 필수)</p>
-                        <p><strong>입장 마감:</strong> 새벽 3시 이후 입장 불가. 늦으면 니 책임.</p>
-                        <p style="margin-top: 1rem;"><a href="tel:01062790862" class="tel-link">☎ 010-6279-0862</a></p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">전화 안 받으면 문자 남겨. 답장은 느릴 수 있음 — 우리는 DJ 부스에서 놀고 있으니까.</p>
-                    </div>
+<section id="conditions" class="n-main-anx0-conditions">
+  <div class="container">
+    <article>
+      <h2>상황별 적합성</h2>
+      <p>다음은 상황별 클럽 선택 가이드입니다. <strong>친구와 파티</strong>를 계획한다면, 넓은 무대와 고음량 스피커를 갖춘 클럽이 분위기를 고조시킵니다. 반면 <strong>동료와 네트워킹</strong> 목적이라면 조용한 라운지와 와인 바가 있는 클럽을 추천합니다.</p>
+      <p>또한 <strong>시간대별 분위기 차이</strong>도 고려해야 합니다. 오후 초반은 비교적 한산하고 음악 볼륨이 낮아 대화가 가능하지만, 오후 10시 이후는 조명과 사운드가 강해 댄스 중심으로 변합니다. 이런 차이를 미리 파악하면 원하는 분위기를 쉽게 찾을 수 있습니다.</p>
+    </article>
+    <article>
+      <h2>특별 상황 체크리스트</h2>
+      <p>대규모 이벤트(생일 파티, 기업 워크숍 등)를 진행할 경우, <strong>음향 장비</strong>와 <strong>조명 시스템</strong>을 별도 계약할 수 있는지 확인이 필요합니다. 또한 주류 판매 제한이 있는 경우, 외부 바텐더를 불러야 할 수도 있습니다.</p>
+      <p>소규모 모임에서는 <strong>예약 최소 인원</strong>과 <strong>취소 정책</strong>을 반드시 검토하세요. 일부 클럽은 최소 5인 예약을 요구하고, 취소 시 전체 금액을 청구할 수 있습니다.</p>
+    </article>
+  </div>
+</section>
 
-                    <div class="card">
-                        <h3>💰 입장료 & 서비스</h3>
-                        <p><strong>입장:</strong> 남성 15,000원 / 여성 10,000원 (룩북 인증 시 양성 5,000원 할인)<br>
-                        <strong>룩북 인증:</strong> 입구에서 스태프에게 "T3B06 룩북 왔음"이라고 말하거나, 인스타에 #망원클럽룩북 해시태그 보여주면 할인 적용.</p>
-                        <p><strong>음료:</strong> 생맥주 4,000원, 칵테일 8,000원부터. <strong>카드 된다.</strong> 단, 1만 원 미만은 현금만 — 동전 준비해와라.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="q-hero-dk15"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#e6f7ff" d="M0,0 C360,55 720,15 1080,70 C1260,100 1440,55 1440,0 L1440,80 L0,80 Z"></path></svg></div>
 
-        <section>
-            <div class="wrap">
-                <h2>자주 묻는 질문 — FAQ</h2>
-                <div class="faq-item">
-                    <div class="faq-question">Q. 브루탈리즘 룩북이 뭔데?</div>
-                    <div class="faq-answer">A. 쉽게 말해서 <strong>니 방식대로 입는 거.</strong> 하지만 기준은 있다. 위에 드레스 코드 참고. 못 입겠으면 그냥 와서 구경해라. 그래도 재밌다.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q. 전화 안 받으면 어쩌라고?</div>
-                    <div class="faq-answer">A. 문자 남겨라. 영업시간 중에는 DJ 부스에 있어서 전화를 못 받을 수 있음. 1~2시간 내로 답장 간다. 급하면 인스타 DM도 OK — @t3b06_mw</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q. 클럽에 무슨 음악 틀어?</div>
-                    <div class="faq-answer">A. 하우스, 테크노, 브레이크비츠 — 게스트 DJ 따라 바뀜. K팝? EDM? 그딴 거 절대 안 틀어. 거리의 비트를 원하면 와라.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q. 여기는 안전한가?</div>
-                    <div class="faq-answer">A. 우리 스태프는 전원 호신술 훈련받음. CCTV 24시간. 단, 니가 시비 걸면 니 인생이 위험해질 수 있음 — <strong>존중은 기본이다.</strong></div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Q. 단체 예약 가능?</div>
-                    <div class="faq-answer">A. 5인 이상은 전화로 사전 예약 필수. 안 하면 입장 불가. VIP 라운지도 있음 (최소 10만 원). 자세한 건 전화해.</div>
-                </div>
-            </div>
-        </section>
+<section id="faq" class="n-main-anx0-faq">
+  <div class="container">
+    <h2>FAQ</h2>
+    <article>
+      <h3>망원 클럽은 어떻게 선택해야 하나요?</h3>
+      <p>클럽 선택은 방문 목적·인원 규모·시간대에 따라 달라집니다. 분위기, 음악 장르, 좌석 구조를 먼저 확인하고, 사전 예약 여부와 입장료를 비교하세요.</p>
+    </article>
+    <article>
+      <h3>이용 전 어떤 점을 체크해야 하나요?</h3>
+      <p>입장료, 영업시간, 사전 예약 필요 여부, 주류 제공 여부를 반드시 확인합니다. 특히 주말에는 대기 시간이 길어질 수 있으니 사전 확인이 필수입니다.</p>
+    </article>
+    <article>
+      <h3>친구 모임에 적합한 클럽은 어디인가요?</h3>
+      <p>대형 좌석이 구비된 클럽은 대규모 모임에 적합합니다. 반면 작은 라운지형 클럽은 친밀한 대화와 소규모 파티에 알맞습니다.</p>
+    </article>
+    <article>
+      <h3>첫 방문 시 어떤 복장을 준비해야 할까요?</h3>
+      <p>대부분 클럽은 캐주얼·세미 포멀을 허용하지만, 특정 클럽은 드레스 코드를 갖고 있습니다. 사전 확인이 안전합니다.</p>
+    </article>
+  </div>
+</section>
 
-        <section>
-            <div class="wrap">
-                <h2>🔥 지역 시그널 — 망원의 밤을 아는가</h2>
-                <p>홍대? 강남? <strong>지루해 죽겠다.</strong> 진짜 피가 흐르는 거리는 망원이다. 망원 클럽 룩북은 그 거리에서 태어났다. 골목 사이 숨은 공간, 콘크리트 바닥에 울리는 비트, 그리고
+<footer class="k-grid-btba" style="background:#fafaf7;padding:24px;text-align:center;">
+  <p>© 2026 망원 클럽 룩북. 모든 권리 보유.</p>
+  <p>작성자: 노을빛 로컬가이드 – 망원 지역 클럽 정보를 5년간 정리해온 로컬 전문가.</p>
+</footer>
+
+<!-- cache_id:3f9a1c2b8e7d -->
+<div class="cache-marker" style="opacity:0;height:0;overflow:hidden">a7b9c3d1</div>
+
+<img src="https://via.placeholder.com/400x300" alt="graphic_element_ab12">
+<img src="https://via.placeholder.com/400x300" alt="graphic_element_cd34">
 </body>
 </html>
